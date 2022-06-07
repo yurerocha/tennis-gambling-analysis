@@ -317,8 +317,8 @@ jogou(J) :- jogo(JOUTRO, J, _, _, _, P, _), write([JOUTRO, J, P]), nl, fail.
 
 % Printar os jogos em que J participou e os lucros ou prejuízos.
 % jogou(jogador, status)
-duelou(J, S) :- duelo(J, JOUTRO, _, _, _, P, S), write([J, JOUTRO, P]), nl, fail.
-duelou(J, S) :- duelo(JOUTRO, J, _, _, _, P, S), write([JOUTRO, J, P]), nl, fail.
+jogou(J, S) :- jogo(J, JOUTRO, _, _, _, P, S), write([J, JOUTRO, P]), nl, fail.
+jogou(J, S) :- jogo(JOUTRO, J, _, _, _, P, S), write([JOUTRO, J, P]), nl, fail.
 
 % Printar lucros ou prejuízos de todos os jogos.
 % resultados(status)
@@ -330,8 +330,8 @@ odd_acima(OBASE) :- jogo(_, _, _, ODD, V, P, 'Won'), ODD > OBASE, write([ODD, V,
 
 % Printar apostas acima de valor V.
 % aposta_acima(valor)
-aposta_acima(VAL) :- duelo(_, _, _, _, _, V, _), V > VAL, write(VV), nl, fail.
+aposta_acima(VAL) :- jogo(_, _, _, _, _, V, _), V > VAL, write(V), nl, fail.
 
 % Printar apostas nas quais J jogou, ganhou e o apostador também ganhou.
 % ganhou(jogador)
-ganhou(J) :- duelo(_, _, J, _, _, P, 'Won'), write(P), nl, fail.
+ganhou(J) :- jogo(_, _, J, _, _, P, 'Won'), write(P), nl, fail.

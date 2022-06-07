@@ -21,6 +21,9 @@ habilidade('Verdasco', 3.75).
 habilidade('Medjedovic', 0.0).
 habilidade('Johnson', 2.5).
 
+% Prinnta todos os jogadores desta base de dados.
+print_jogadores() :- habilidade(J, _), atom_concat(J, ' ', S), write(S), fail.
+
 % Previsão, baseada em jogos passados, de quem ganharia um novo jogo.
 % novo_jogo(jogador 1, jogador 2)
 novo_jogo(J1, J2) :- habilidade(J1, H1), habilidade(J2, H2), H1 > H2, atom_concat('Campeão: ', J1, S), write(S), nl.
