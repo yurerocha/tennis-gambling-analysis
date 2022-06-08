@@ -1,4 +1,4 @@
-% jogo(jogador1, jogador2, vencedor, odd, aposta, lucro/prejuizo, status).
+% jogo(jogador 1, jogador 2, vencedor, odd, aposta, lucro/prejuizo, status).
 
 jogo('Kokkinakis', 'Virtanen', 'Kokkinakis', 1.26, 5, -5, 'Lost').
 jogo('Duckworth', 'Herbert', 'Duckworth', 2, 5, -5, 'Lost').
@@ -330,8 +330,8 @@ odd_acima(OBASE) :- jogo(_, _, _, ODD, V, P, 'Won'), ODD > OBASE, write([ODD, V,
 
 % Printar apostas acima de valor V.
 % aposta_acima(valor)
-aposta_acima(VAL) :- jogo(_, _, _, _, _, V, _), V > VAL, write(V), nl, fail.
+aposta_acima(VAL) :- jogo(_, _, _, _, V, _, _), V > VAL, write(V), nl, fail.
 
 % Printar apostas nas quais J jogou, ganhou e o apostador também ganhou.
 % ganhou(jogador)
-ganhou(J) :- jogo(_, _, J, _, _, P, 'Won'), write(P), nl, fail.
+ganhou(J) :- jogo(_, _, J, _, _, P, 'Won'), write(P), nl, fail
